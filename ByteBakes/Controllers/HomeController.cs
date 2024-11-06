@@ -18,10 +18,26 @@ namespace ByteBakes.Controllers
             return View();
         }
 
-        public IActionResult Catalog()
+        public IActionResult Shop()
         {
             return View();
         }
+
+        public IActionResult About()
+        {
+            return View();
+        }
+
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
+        public IActionResult Checkout()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
