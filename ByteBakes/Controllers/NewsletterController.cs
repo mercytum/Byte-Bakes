@@ -20,6 +20,8 @@ public class NewsletterController : Controller
       //Add the subscriber to our Observer Pattern
       _newsletterService.Subscribe(subscriber);
 
+      
+
       return Ok("Subscription Successful");
     }
 

@@ -32,7 +32,16 @@ public class NewsletterService : INewsletterSubject
     //Add subscriber to our database
     public void AddSubscriberToDb(Subscriber subscriber)
     {
-      _context.Subscribers.Add(subscriber);
-      _context.SaveChanges();
+          try
+          {
+              subscriber.TimeStamp = DateTime.UtcNow;
+              _context.Subscribers.Add(subscriber);
+              _context.SaveChanges();
+              Console.WriteLine("Subscriber added successfully.");
+          }
+        catch (Exception ex)
+          {
+              Console.WriteLine($"Error saving subscriber: {ex.Message}");
+          } 
     }
 }
