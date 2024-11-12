@@ -38,9 +38,16 @@ namespace ByteBakes.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult WhyByteBakes()
         {
             return View();
+        }
+
+        public class ImageModel
+        {
+            public string FileName { get; set; }
+
+            public byte[] ImageData { get; set; }
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
