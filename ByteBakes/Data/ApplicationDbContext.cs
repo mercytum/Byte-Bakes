@@ -9,5 +9,7 @@ namespace ByteBakes.Data
             : base(options)
         {
         }
+
+        public DbSet<Subscriber> Subscribers { get; set; }
     }
 }

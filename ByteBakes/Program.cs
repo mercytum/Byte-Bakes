@@ -12,7 +12,15 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
+//Register NewsletterService for Dependancy Injection
+builder.Services.AddScoped<NewsletterService>();
+
+
 builder.Services.AddControllersWithViews();
+
+
+
 
 var app = builder.Build();
 

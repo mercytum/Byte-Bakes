@@ -43,11 +43,9 @@ namespace ByteBakes.Controllers
             return View();
         }
 
-        public class ImageModel
+        public IActionResult Subscribe()
         {
-            public string FileName { get; set; }
-
-            public byte[] ImageData { get; set; }
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
