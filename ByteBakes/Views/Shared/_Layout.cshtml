@@ -18,41 +18,58 @@
         }
         .navbar-custom 
         {
-            background-color: #f1c7ff;
+            background-color: #1c3738;
             /*change navbar color*/
         }
 
     </style>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-custom border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img src="~/images/bytebakesimage.png"
-                         height="120px" width="120px" />
-                </a>
+            <div class="container-fluid"> 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark navbar-brand" asp-area="" asp-controller="Home" asp-action="Shop">Shop</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark navbar-brand" asp-area="" asp-controller="Home" asp-action="About">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark navbar-brand" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
-                        </li>
-                        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Checkout"><img src="~/images/shoppingcart.png"
-                                 height="30px" width="30px" />
-                        </a>
-
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
-               
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-light navbar-brand" asp-area="" asp-controller="Home" asp-action="Shop">Shop</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-light navbar-brand" asp-area="" asp-controller="Home" asp-action="WhyByteBakes">Why Byte-Bakes?</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-light navbar-brand" asp-area="" asp-controller="Home" asp-action="About">About</a>
+                    </li>
+                </ul>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/images/Byte-Bakes 1.png"
+                         height="158px" width="250px" />
+                </a>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-light navbar-brand" asp-area="" asp-controller="Home" asp-action="Contact">Contact Us</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link navbar-brand text-light" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                </li>
+                </ul>
+                <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link navbar-brand text-light" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Checkout"><img src="~/images/shoppingCart.png"
+                                 height="50px" width="50px" /> </a>
+                    </li>
+                </ul>
             </div>
         </nav>
     </header>
@@ -63,8 +80,9 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 Byte-Bakes <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        <div class="container" style="text-align: center">
+            <h1 class="display-md-3"></h1>
+            <h1 style="font-size:20px" class="display-md-2">Follow Us</h1>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

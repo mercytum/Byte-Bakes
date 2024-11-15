@@ -38,7 +38,7 @@ namespace ByteBakes.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult WhyByteBakes()
         {
             return View();
         }
