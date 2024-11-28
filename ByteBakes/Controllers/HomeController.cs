@@ -23,6 +23,11 @@ namespace ByteBakes.Controllers
             return View();
         }
 
+        public IActionResult WhyByteBakes()
+        {
+            return View();
+        }
+
         public IActionResult About()
         {
             return View();
@@ -47,6 +52,7 @@ namespace ByteBakes.Controllers
         {
             return View();
         }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
