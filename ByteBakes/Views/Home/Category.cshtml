@@ -1,0 +1,33 @@
+﻿// Add this to VIEWS to display the different Categories, This might be incorrect here
+// I wrote these by hand without internet when our power went out, I might have messed this part up
+@model IEnumerable<Category>
+<h1>Category List</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var category in Model)
+        {
+            <tr>
+                <td>@category.Name</td>
+                <td>@category.Type</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Category/Create?factoryType=Cake">Add Cakes</a> |
+<a href="/Category/Create?factoryType=Bread">Add Breads</a> |
+<a href="/Category/Create?factoryType=Pastry">Add Pastries</a> |
+<a href="/Category/Create?factoryType=Sweet">Add Sweets</a>
+
+
+
+
+// Add to startup?
+public void ConfigureServices(IServiceCollection services){
+    services.AddControllersWithViews();
+    services.AddDbContext<ShopContext>();}
