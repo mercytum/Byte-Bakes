@@ -15,9 +15,10 @@ namespace ByteBakes.Models.Categories
 
         public ICake CreateCake(){ return new CheeseCake();      } 
 
-        public ICake CreateCake => new ChocolateCake(); 
-        public ICake CreateCake => new CarrotCake();
-        public ICake CreateCake() => new VelvetCake();
+        // Fix here. Might have to make it implement 1 of each like Hw 3, and re-name the factories
+        //public ICake CreateCake => new ChocolateCake(); 
+        //public ICake CreateCake => new CarrotCake();
+        //public ICake CreateCake() => new VelvetCake();
 
 
 

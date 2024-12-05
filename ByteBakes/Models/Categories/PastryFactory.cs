@@ -15,9 +15,10 @@ namespace ByteBakes.Models.Categories
         IPastry IByteBakesFactory.CreatePastry => throw new NotImplementedException();
 
         public IPastry CreatePastry() => new Croissant();
-        public IPastry CreatePastry() => new Eclair();
-        public IPastry CreatePastry() => new PuffPastry();
-        public IPastry CreatePastry() => new Macaron();
+        // Fix here. Might have to make it implement 1 of each like Hw 3, and re-name the factories
+        // public IPastry CreatePastry() => new Eclair();
+        // public IPastry CreatePastry() => new PuffPastry();
+        //public IPastry CreatePastry() => new Macaron();
 
     }
 }

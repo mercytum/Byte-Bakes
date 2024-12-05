@@ -11,8 +11,10 @@ namespace ByteBakes.Models.Categories
         IBread IByteBakesFactory.CreateBread => throw new NotImplementedException();
 
         public IBread CreateBread() => new Sourdough();
-        public IBread CreateBread() => new SweetBread();
-        public IBread CreateBread() => new Brioche();
-        public IBread CreateBread() => new Bagel();
+
+        // Fix here. Might have to make it implement 1 of each like Hw 3, and re-name the factories
+        //public IBread CreateBread() => new SweetBread();
+        //public IBread CreateBread() => new Brioche();
+        //public IBread CreateBread() => new Bagel();
     }
 }
