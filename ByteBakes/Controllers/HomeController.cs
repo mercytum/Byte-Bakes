@@ -23,6 +23,11 @@ namespace ByteBakes.Controllers
             return View();
         }
 
+        public IActionResult Cakes()
+        {
+            return View();
+        }
+
         public IActionResult WhyByteBakes()
         {
             return View();
