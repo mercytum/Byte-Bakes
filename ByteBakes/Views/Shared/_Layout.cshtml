@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,62 +8,75 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ByteBakes.styles.css" asp-append-version="true" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <style>
-
-        .navbar-brand
-        {
-            font-size: 20px;
+        .navbar-brand {
+            font-size: 16px;
             /*change navbar font size*/
         }
-        .navbar-custom 
-        {
-            background-color: #f1c7ff;
+
+        .navbar-custom {
+            background-color: #1C3738;
             /*change navbar color*/
         }
-
     </style>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-custom border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-custom box-shadow ">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img src="~/images/bytebakesimage.png"
-                         height="120px" width="120px" />
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="navbar-collapse collapse d-inline-flex justify-content-between">
+                    <ul class="navbar-nav" id="navbar">
                         <li class="nav-item">
-                            <a class="nav-link text-dark navbar-brand" asp-area="" asp-controller="Home" asp-action="Shop">Shop</a>
+                            <a class="nav-link navbar-brand" asp-area="" asp-controller="Home"
+                                asp-action="Shop">Shop</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark navbar-brand" asp-area="" asp-controller="Home" asp-action="About">About</a>
+                            <a class="nav-link navbar-brand" asp-area="" asp-controller="Home"
+                                asp-action="WhyByteBakes">Why Byte-Bakes Bakes?</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark navbar-brand" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+                            <a class="nav-link navbar-brand" asp-area="" asp-controller="Home"
+                                asp-action="About">About</a>
                         </li>
-                        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Checkout"><img src="~/images/shoppingcart.png"
-                                 height="30px" width="30px" />
-                        </a>
+                        <li>
+                            <a class="navbar-brand" id="logo"  asp-area="" asp-controller="Home" asp-action="Index">
+                                <img src="~/images/Byte-Bakes-logo.svg"  />
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link navbar-brand" asp-area="" asp-controller="Home"
+                                asp-action="Contact">Contact Us</a>
+                        </li>
+                        <li>
+                            <partial name="_LoginPartial" />
+                        </li>
+                        <li>
+                            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Checkout"><img
+                                    src="~/images/shoppingcart.png" height="30px" width="30px"></a>
+                        </li>
 
                     </ul>
-                    <partial name="_LoginPartial" />
+
                 </div>
-               
+
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+    <div class="container-fluid">
+        <main role="main" >
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="footer text-muted">
         <div class="container">
             &copy; 2024 Byte-Bakes <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
@@ -72,4 +86,5 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
+
 </html>

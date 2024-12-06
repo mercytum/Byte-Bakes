@@ -3,18 +3,58 @@
     ViewData["Title"] = "Welcome to Byte-Bakes!";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to Byte-Bakes!</h1>
- 
-    <h1 class="display-5">Why Us?</h1>
-    <h1 class="display-6">Our pastries are the best</h1>
+<div class="landing">
+        <h1>AN ONLINE BAKERY WITH YOUR</h1>
+        <h1>HEALTH IN MIND</h1>
+        <a asp-controller="Home" asp-action="Shop">
+            <button>Shop Now</button>
+        </a>
 </div>
 
+<div class="text-center" id="section-1">
+    <p>Choose flavors, ingredients, and toppings to suit</p>
+    <p>your cravings and dietary needs.</p>
+    <a class="pb-3">
+        <button>Learn More</button>
+    </a>
+</div>
+
+<div class="categories text-center">
+    <div class="category titles">
+        <a asp-controller="Home" asp-action="Cakes">Cakes</a>
+        <img src="../images/red-cake.png" alt="Cakes" />  
+    </div>
+    <div class="break"></div>
+    <div class="category titles">
+        <img src="../images/pastries.png" alt="Pastries" /> 
+        <a asp-controller="Home" asp-action="Cakes">Pastries</a>
+    </div>
+    <div class="break"></div>
+    <div class="category titles">
+        <a asp-controller="Home" asp-action="Cakes">Breads</a>
+        <img src="../images/bread.png" alt="Cakes" />  
+    </div>
+    <div class="break"></div>
+    <div class="category titles">
+        <img src="../images/sweets-treats.png" alt="Pastries" /> 
+        <a asp-controller="Home" asp-action="Cakes">Sweets & Treats</a>
+    </div>
+    <div class="break"></div>
+</div>
+
+
 <div class="subscribe">
-    <form method="post" action="/Newsletter/subscribe">
+    <div>
+        <p>Get the inside scoop!</p>
+        <p>Sign up for our newsletter to receive exclusive offers, delicious recipes,</p> 
+        <p>and the latest pastry updates from Byte Bakes!</p>
+    </div>
+    <div>
+        <form method="post" action="/Newsletter/subscribe">
         <label for="email">Email</label>
         <input type="email" id="email" name="email" required />
         <button type="submit">Sign Me Up!</button>
-    </form>
+        </form>
+    </div>
 </div>
     
