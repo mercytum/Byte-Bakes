@@ -1,5 +1,4 @@
 ﻿// Controller for Category Operations
-
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using ByteBakes.Data;
@@ -17,31 +16,25 @@ namespace ByteBakes.Controllers
 
         public IActionResult Index()
         {
-            var catorgies = _context.Categories.ToList();
-            return View(catorgies);
+            var categories = _context.Categories.ToList();
+            return View(categories);
         }
 
-        public IActionResult Create(string factoryType)
+        [HttpPost]
+        public IActionResult Create(string category, string type)
         {
             IByteBakesFactory factory;
             // Select factory based on input
-            if (factoryType == "Cake") { factory = new CakeFactory(); }
-            else if (factoryType == "Bread") { factory = new BreadFactory(); }
-            else if (factoryType == "Pastry") { factory = new PastryFactory(); }
-            else if (factoryType == "Sweet") { factory = new SweetFactory(); }
-            else { return BadRequest("Invalid factory type."); }
+            if (category == "Cake") { factory = new CakeFactory(); }
+            else if (category == "Bread") { factory = new BreadFactory(); }
+            else if (category == "Pastry") { factory = new PastryFactory(); }
+            else if (category == "Sweet") { factory = new SweetFactory(); }
+            else { return BadRequest("Invalid category type."); }
 
-            // Create products
-            var cake = factory.CreateCake();
-            var bread = factory.CreateBread();
-            var pastry = factory.CreatePastry();
-            var sweet = factory.CreateSweet();
+            var product = factory.CreateProduct(type);
 
-            // Add to database
-            _context.Categories.Add(new Category { Name = cake.Name, Type = "Cake" });
-            _context.Categories.Add(new Category { Name = bread.Name, Type = "Bread" });
-            _context.Categories.Add(new Category { Name = pastry.Name, Type = "Pastry" });
-            _context.Categories.Add(new Category { Name = sweet.Name, Type = "Sweet" });
+            _context.Categories.Add(product);
+
 
             _context.SaveChanges();
             return RedirectToAction("Index");

@@ -1,11 +1,11 @@
-﻿// Add this to VIEWS to display the different Categories, This might be incorrect here
-// I wrote these by hand without internet when our power went out, I might have messed this part up
-@model IEnumerable<Category>
-<h1>Category List</h1>
+﻿@model IEnumerable<Pastry>
+
+<h1>Products</h1>
 <table>
     <thead>
         <tr>
             <th>Name</th>
+            <th>Category</th>
             <th>Type</th>
         </tr>
     </thead>
@@ -14,20 +14,42 @@
         {
             <tr>
                 <td>@category.Name</td>
+                <td>@category.Category</td>
                 <td>@category.Type</td>
             </tr>
         }
     </tbody>
 </table>
-<a href="/Category/Create?factoryType=Cake">Add Cakes</a> |
-<a href="/Category/Create?factoryType=Bread">Add Breads</a> |
-<a href="/Category/Create?factoryType=Pastry">Add Pastries</a> |
-<a href="/Category/Create?factoryType=Sweet">Add Sweets</a>
 
+<h2>Add Product</h2>
+<form method="post" asp-action="Create">
+    <label for="category">Category:</label>
+    <select id="category" name="category">
+        <option value="Bread">Bread</option>
+        <option value="Cake">Cake</option>
+        <option value="Pastry">Pastry</option>
+        <option value="Sweet">Sweet</option>
+    </select>
 
+    <label for="type">Type:</label>
+    <select id="type" name="type">
+        <option value="Sourdough">Sourdough Bread</option>
+        <option value="Sweet">Sweet Bread</option>
+        <option value="Brioche">Brioche Bread</option>
+        <option value="Bagel">Bagel</option>
+        <option value="Cheese">Cheese Cake</option>
+        <option value="Chocolate">Chocolate Cake</option>
+        <option value="Carrot">Carrot Cake</option>
+        <option value="Velvet">Velvet Cake</option>
+        <option value="Croissant">Croissant</option>
+        <option value="Eclair">Eclair</option>
+        <option value="Puff">Puff Pastry</option>
+        <option value="Macaron">Macaron</option>
+        <option value="Pie">Pie</option>
+        <option value="Cookies">Cookies</option>
+        <option value="CinnamonRolls">Cinnamon Rolls</option>
+        <option value="Cupcake">Cupcake</option>
+    </select>
 
-
-// Add to startup?
-public void ConfigureServices(IServiceCollection services){
-    services.AddControllersWithViews();
-    services.AddDbContext<ShopContext>();}
+    <button type="submit">Add Product</button>
+</form>

@@ -11,5 +11,8 @@ namespace ByteBakes.Models.Categories
 
         // Function to get category type
         public string Type { get; set; }
+
+        //Adding this here
+        public string CategoryName {  get; set; }
     }
 }

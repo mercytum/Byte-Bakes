@@ -1,24 +1,21 @@
 ﻿// Pastry Concrete Factory for Abstract Factory Pattern
 
-
-using System.Security.Claims;
-
 namespace ByteBakes.Models.Categories
 {
     public class PastryFactory : IByteBakesFactory
     {
 
-        public ICake CreateCake => throw new NotImplementedException();
-        public ISweet CreateSweet => throw new NotImplementedException();
-        public IBread CreateBread => throw new NotImplementedException();
-
-        IPastry IByteBakesFactory.CreatePastry => throw new NotImplementedException();
-
-        public IPastry CreatePastry() => new Croissant();
-        // Fix here. Might have to make it implement 1 of each like Hw 3, and re-name the factories
-        // public IPastry CreatePastry() => new Eclair();
-        // public IPastry CreatePastry() => new PuffPastry();
-        //public IPastry CreatePastry() => new Macaron();
-
+        public Category CreateProduct(string name)
+        {
+            string type = name switch
+            {
+                "Croissant" => "Croissant",
+                "Eclair" => "Eclair",
+                "Puff" => "Puff Pastry",
+                "Macaron" => "Macaron",
+                _ => "Generic Pastry"
+            };
+            return new Category { Name = type, CategoryName = "Pastry", Type = type };
+        }
     }
 }
