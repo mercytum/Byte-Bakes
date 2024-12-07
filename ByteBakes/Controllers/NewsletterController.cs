@@ -20,9 +20,10 @@ public class NewsletterController : Controller
       //Add the subscriber to our Observer Pattern
       _newsletterService.Subscribe(subscriber);
 
+      // Redirect back to the current view with a success message
+      TempData["SubscriptionMessage"] = "Subscription Successful!";
       
-
-      return Ok("Subscription Successful");
+      return Redirect("/Home/Index#SubscribeSection");
     }
 
     [HttpPost]
