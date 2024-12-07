@@ -171,6 +171,21 @@ a:hover {
   border-top: 1px solid #FFFAEF;
 }
 
+.subscribe form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 5px;
+  margin: 5px;
+}
+
+.email {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
 .subscribe-text {
   margin-right: 5%;
 }
