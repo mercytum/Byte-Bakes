@@ -7,6 +7,10 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+a:hover {
+  color: #ddc67e !important; 
+}
+
 
 body {
   background-color: #1C3738;
