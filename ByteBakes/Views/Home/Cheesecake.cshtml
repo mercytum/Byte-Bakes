@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Here is our cheesecake selection!";
+}
+
+<h1>Cheesecake</h1>
+
+@model ByteBakes.Models.HomeViewModel
+
+<div class="form-check">
+    <label class="form-check-label">
+        Fresh Berries
+    </label>
+    <input class="form-check-input" type="checkbox" asp-for="IsFreshBerries" />
+</div>
+<div class="form-check">
+    <label class="form-check-label">
+        Whipped Cream
+    </label>
+    <input class="form-check-input" type="checkbox" asp-for="IsWhippedCream" />
+</div>
+<div class="form-check">
+    <label class="form-check-label">
+        Sprinkles
+    </label>
+    <input class="form-check-input" type="checkbox" asp-for="IsSprinkles" />
+</div>
+<div class="form-check">
+    <label class="form-check-label">
+        Chocolate Drizzle
+    </label>
+    <input class="form-check-input" type="checkbox" asp-for="IsChocolateDrizzle" />
+</div>
+<div class="form-check">
+    <label class="form-check-label">
+        Caramel Sauce
+    </label>
+    <input class="form-check-input" type="checkbox" asp-for="IsCaramelSauce" />
+</div>

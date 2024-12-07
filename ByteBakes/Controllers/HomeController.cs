@@ -22,6 +22,20 @@ namespace ByteBakes.Controllers
         {
             return View();
         }
+        public IActionResult Cheesecake()
+        {
+            var model = new HomeViewModel()
+            {
+                IsFreshBerries = false,
+                IsWhippedCream = false,
+                IsSprinkles = false,
+                IsChocolateDrizzle = false,
+                IsCaramelSauce = false
+            };
+
+
+            return View(model);
+        }
 
         public IActionResult Cakes()
         {
