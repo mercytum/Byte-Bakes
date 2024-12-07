@@ -82,7 +82,7 @@ a:hover {
 }
 
 .landing-small {
-  height: 65vh;
+  height: 70vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -183,7 +183,7 @@ a:hover {
 .category-items {
   display: flex;
   flex-direction: column;
-  margin-top: 60px;
+  margin-top: 45px;
 }
 
 .category-product {
@@ -209,6 +209,58 @@ a:hover {
   text-transform: uppercase;
   color: #FFFAEF;
   margin-bottom: 15px;
+}
+
+.cakes {
+  display: flex;
+  flex-direction: column;
+  margin-top: 38px;
+}
+
+.product-family {
+  display: flex;
+  flex-direction: row;
+  height: 300px;
+  margin-top: -1px;
+  border-bottom: 1px solid #FFFAEF;
+}
+
+.product {
+  
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-left: -5%;
+}
+
+.family-thumbnail {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  background-color: #FFFAEF;
+  width: 40%;
+  height: 100%;
+  align-items: center;
+}
+
+.family-thumbnail a {
+  font-size: 18px;
+  color: #000F08;
+  text-transform: uppercase;
+  margin-top: 8%;
+
+}
+
+.product-family img {
+  width: 250px;
+  height: 250px;
+  margin-top: -10%;
+}
+
+.product-description {
+  margin-top: 5%;
+  margin-left: 2%;
+
 }
 
 footer {
