@@ -51,7 +51,9 @@ p {
   color: #FFFAEF;
 }
 
-
+a:hover {
+  color: #ddc67e !important;
+}
 
 /* .landing {
   height: 100vh;
@@ -77,6 +79,24 @@ p {
   text-align: center;
   margin-top: -30%;
   margin-bottom: -12%;
+}
+
+.landing-small {
+  height: 70vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-image:url('../images/landing.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  text-align: center;
+  margin-top: -45%;
+  margin-bottom: -19%;
+}
+
+.landing-small h1{
+  padding-top: 20%;
 }
 
 .landing h1 {
@@ -123,6 +143,7 @@ p {
 .titles {
   font-size: 26px;
   color: #000F08;
+  text-transform: uppercase;
 }
 
 .category img {
@@ -145,6 +166,101 @@ p {
   justify-content: center;
   align-items: center;
   padding-bottom: 50px;
+  background-color: #1C3738;
+  padding-top: 5%;
+  border-top: 1px solid #FFFAEF;
+}
+
+.subscribe-text {
+  margin-right: 5%;
+}
+
+.subscribe input {
+  width: 50%;
+  height: 30px;
+}
+
+.category-items {
+  display: flex;
+  flex-direction: column;
+  margin-top: 45px;
+}
+
+.category-product {
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+}
+
+.category-product-item {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  align-items: center;
+}
+
+.category-product-item img {
+  width: 400px;
+  height: 340px;
+}
+
+.category-product-item a {
+  font-size: 24px;
+  text-transform: uppercase;
+  color: #FFFAEF;
+  margin-bottom: 15px;
+}
+
+.cakes {
+  display: flex;
+  flex-direction: column;
+  margin-top: 38px;
+}
+
+.product-family {
+  display: flex;
+  flex-direction: row;
+  height: 300px;
+  margin-top: -1px;
+  border-bottom: 1px solid #FFFAEF;
+}
+
+.product {
+  
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-left: -5%;
+}
+
+.family-thumbnail {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  background-color: #FFFAEF;
+  width: 40%;
+  height: 100%;
+  align-items: center;
+}
+
+.family-thumbnail a {
+  font-size: 18px;
+  color: #000F08;
+  text-transform: uppercase;
+  margin-top: 8%;
+
+}
+
+.product-family img {
+  width: 250px;
+  height: 250px;
+  margin-top: -10%;
+}
+
+.product-description {
+  margin-top: 5%;
+  margin-left: 2%;
+
 }
 
 footer {
