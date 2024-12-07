@@ -11,5 +11,7 @@ namespace ByteBakes.Data
         }
 
         public DbSet<Subscriber> Subscribers { get; set; }
+
+        
     }
 }
