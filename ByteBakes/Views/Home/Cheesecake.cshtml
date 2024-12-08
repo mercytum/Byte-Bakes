@@ -4,35 +4,75 @@
 
 <h1>Cheesecake</h1>
 
-@model ByteBakes.Models.HomeViewModel
+@model ByteBakes.Models.MyToppingsModel
 
-<div class="form-check">
-    <label class="form-check-label">
-        Fresh Berries
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <label>
+        <input type="checkbox" id="IsFreshBerries" name="IsFreshBerries" value="true"
+        @(Model.IsFreshBerries ? "checked" : "") />
+        Fresh Berries (30 calories)
     </label>
-    <input class="form-check-input" type="checkbox" asp-for="IsFreshBerries" />
-</div>
-<div class="form-check">
-    <label class="form-check-label">
-        Whipped Cream
+    <br />
+
+    <label>
+        <input type="checkbox" id="IsWhippedCream" name="IsWhippedCream" value="true"
+        @(Model.IsWhippedCream ? "checked" : "") />
+        Whipped Cream (110 calories)
     </label>
-    <input class="form-check-input" type="checkbox" asp-for="IsWhippedCream" />
-</div>
-<div class="form-check">
-    <label class="form-check-label">
-        Sprinkles
+    <br />
+
+    <label>
+        <input type="checkbox" id="IsSprinkles" name="IsSprinkles" value="true"
+        @(Model.IsSprinkles ? "checked" : "") />
+        Sprinkles (200 calories)
     </label>
-    <input class="form-check-input" type="checkbox" asp-for="IsSprinkles" />
-</div>
-<div class="form-check">
-    <label class="form-check-label">
-        Chocolate Drizzle
+    <br />
+
+    <label>
+        <input type="checkbox" id="IsChocolateDrizzle" name="IsChocolateDrizzle" value="true"
+        @(Model.IsChocolateDrizzle ? "checked" : "") />
+        Chocolate Drizzle (120 calories)
     </label>
-    <input class="form-check-input" type="checkbox" asp-for="IsChocolateDrizzle" />
-</div>
-<div class="form-check">
-    <label class="form-check-label">
-        Caramel Sauce
+    <br />
+
+    <label>
+        <input type="checkbox" id="IsCaramelSauce" name="IsCaramelSauce" value="true"
+        @(Model.IsCaramelSauce ? "checked" : "") />
+        Caramel Sauce (150 calories)
     </label>
-    <input class="form-check-input" type="checkbox" asp-for="IsCaramelSauce" />
-</div>
+    <br />
+
+    <p>Total Calories: <span id="CaloriesValue">@Model.CaloriesValue</span></p>
+
+    <script>
+        $('input[type="checkbox"]').change(function () {
+            var isWhippedCream = $('#IsWhippedCream').prop('checked');
+            var isSprinkles = $('#IsSprinkles').prop('checked');
+            var isFreshBerries = $('#IsFreshBerries').prop('checked');
+            var isChocolateDrizzle = $('#IsChocolateDrizzle').prop('checked');
+            var isCaramelSauce = $('#IsCaramelSauce').prop('checked');
+
+            $.ajax({
+                url: '@Url.Action("CheesecakeUpdateCalories", "Home")',
+                type: 'POST',
+                data: {
+                    IsWhippedCream: isWhippedCream,
+                    IsSprinkles: isSprinkles,
+                    IsFreshBerries: isFreshBerries,
+                    IsChocolateDrizzle: isChocolateDrizzle,
+                    IsCaramelSauce: isCaramelSauce
+                },
+                success: function (data) {
+                    $('#CaloriesValue').text(data);
+                },
+                error: function () {
+                    alert('Error updating calories');
+                }
+            });
+        });
+    </script>
+</body>
