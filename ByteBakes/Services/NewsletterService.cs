@@ -36,7 +36,17 @@ public class NewsletterService : INewsletterSubject
           {
               subscriber.TimeStamp = DateTime.UtcNow;
               _context.Subscribers.Add(subscriber);
-              _context.SaveChanges();
+              try
+              {
+                _context.SaveChanges();
+              }
+              catch (Exception ex)
+              {
+                  Console.WriteLine($"Error saving subscriber: {ex.Message}");
+                  Console.WriteLine($"Inner Exception: {ex.InnerException?.Message}");
+                  throw;
+              }
+              
               Console.WriteLine("Subscriber added successfully.");
           }
         catch (Exception ex)
