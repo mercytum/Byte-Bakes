@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using ByteBakes.Models.Categories;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace ByteBakes.Data
@@ -11,5 +12,13 @@ namespace ByteBakes.Data
         }
 
         public DbSet<Subscriber> Subscribers { get; set; }
+        public object Category { get; internal set; }
+
+        public DbSet<Category> Categories
+        {
+            get;
+            set;
+        }
+
     }
 }

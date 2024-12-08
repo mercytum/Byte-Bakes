@@ -4,18 +4,37 @@ using System.Linq;
 using ByteBakes.Data;
 using ByteBakes.Models.Categories;
 
-
 namespace ByteBakes.Controllers
 {
     public class CategoryController : Controller
     {
-        private readonly ShopContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public CategoryController(ShopContext context) { _context = context; }
+        public CategoryController(ApplicationDbContext context) { _context = context; }
+
+
+        // This would be implemented if I could get it to work as a dropdown menu but could not
+        // Created it as a page linked to the categories. Would be created upon page selection.
+     //   public ActionResult SelectCategory()
+      //  {
+           // List<SelectListItem> items = new List<SelectListItem>();
+           // items.Add(new SelectListItem { Text = "Bread", Value = "0" });
+           // items.Add(new SelectListItem { Text = "Cake", Value = "1" });
+           // items.Add(new SelectListItem { Text = "Pastry", Value = "2" });
+          //  items.Add(new SelectListItem { Text = "Sweet", Value = "3" });
+
+           // ViewBag.CategoryType = items;
+           // return View();
+
+       // }
+
+
 
 
         public IActionResult Index()
         {
+
+
             var categories = _context.Categories.ToList();
             return View(categories);
         }

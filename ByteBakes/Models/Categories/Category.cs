@@ -1,4 +1,8 @@
 ﻿// Category Entity
+using System.Collections.Generic;
+using System.ComponentModel;
+
+using System.ComponentModel;
 
 namespace ByteBakes.Models.Categories
 {
@@ -13,6 +17,7 @@ namespace ByteBakes.Models.Categories
         public string Type { get; set; }
 
         //Adding this here
-        public string CategoryName {  get; set; }
+        public string CategoryName { get; set; }
     }
+
 }
