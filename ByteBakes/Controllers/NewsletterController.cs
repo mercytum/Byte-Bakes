@@ -38,7 +38,7 @@ public class NewsletterController : Controller
     }
       
       // Redirect back to the referring page
-    string refererUrl = Url.Action("Index", "Home") + "#SubscribeSection";
+    string refererUrl = Url.Action("Subscribe", "Home") ;
 
     return Redirect(refererUrl);
     }
