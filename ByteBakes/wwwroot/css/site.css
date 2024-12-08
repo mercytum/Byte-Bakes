@@ -278,6 +278,37 @@ a:hover {
 
 }
 
+.price {
+  text-align: start;
+}
+
+.cart {
+  margin-top: -58%;
+  margin-right: -10%;
+  width: 90px;
+}
+
+.description {
+  padding: 5%;
+  color:#fffaef;
+}
+
+.price-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.toppings {
+  padding: 5%;
+  color: #000F08;
+  line-height: 30px;
+}
+
+.toppings label input {
+   
+}
+
 footer {
   background-color:#FFFAEF ;
 }
