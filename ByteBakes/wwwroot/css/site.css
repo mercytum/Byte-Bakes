@@ -235,7 +235,7 @@ a:hover {
 .product-family {
   display: flex;
   flex-direction: row;
-  height: 300px;
+  height: 320px;
   margin-top: -1px;
   border-bottom: 1px solid #FFFAEF;
 }
@@ -305,10 +305,17 @@ a:hover {
   line-height: 30px;
 }
 
-.toppings label input {
-   
+.intro {
+   justify-content: flex-start;
 }
 
+.why-us {
+  margin-top: 10%;
+}
+
+.why-us h1 h4 {
+  color: #ddc67e;
+}
 footer {
   background-color:#FFFAEF ;
 }
