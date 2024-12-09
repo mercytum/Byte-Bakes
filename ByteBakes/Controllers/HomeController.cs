@@ -32,17 +32,22 @@ namespace ByteBakes.Controllers
         [HttpPost]
         public IActionResult CheesecakeUpdateCalories(MyToppingsModel toppingsModel)
         {
-            int calories = 410;
-            if (toppingsModel.IsFreshBerries) calories += 30;
-            if (toppingsModel.IsWhippedCream) calories += 110;
-            if (toppingsModel.IsSprinkles) calories += 200;
-            if (toppingsModel.IsChocolateDrizzle) calories += 120;
-            if (toppingsModel.IsCaramelSauce) calories += 150;
+            IPastryCalories calories = new pastryCalories(410);
 
-            // Set the updated calories value in the model
-            toppingsModel.CaloriesValue = calories;
+            if (toppingsModel.IsFreshBerries) 
+                calories = new freshBerriesDecorator(calories);
+            if (toppingsModel.IsWhippedCream) 
+                calories = new whippedCreamDecorator(calories);
+            if (toppingsModel.IsSprinkles) 
+                calories = new sprinklesDecorator(calories);
+            if (toppingsModel.IsChocolateDrizzle) 
+                calories = new chocolateDrizzleDecorator(calories);
+            if (toppingsModel.IsCaramelSauce) 
+                calories = new caramelSauceDecorator(calories);
 
-            // Return the updated calories value as JSON for AJAX
+            int pastryCheckedCalories = calories.calories();
+            toppingsModel.CaloriesValue = pastryCheckedCalories;
+
             return Json(toppingsModel.CaloriesValue);
         }
 
