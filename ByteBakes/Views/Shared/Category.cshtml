@@ -1,0 +1,68 @@
+﻿@{
+    ViewData["Title"] = "Select a Type of Pastry";
+}
+
+<div class="landing-small">
+    <h1>CATEGORIES</h1>
+</div>
+
+<div class="category-items">
+    <div class="category-product">
+        <div class="category-product-item text-center" style="background-color: #1C3738;">
+            <img src="../images/cakes-category.png" alt="Cakes" />
+            <a asp-controller="Home" asp-action="Cakes">Cakes</a>
+        </div>
+        <div class="category-product-item text-center" style="background-color: #FFFAEF;">
+            <img src="../images/bread-category.png" alt="Bread" />
+            <a asp-controller="Home" asp-action="Cakes" style="color: #1C3738;">Breads</a>
+        </div>
+    </div>
+    <div class="category-product">
+        <div class="category-product-item text-center" style="background-color: #FFFAEF;">
+            <img src="../images/pastries-category.png" alt="Pastry" />
+            <a asp-controller="Home" asp-action="Cakes" style="color: #1C3738;">Pastries</a>
+        </div>
+        <div class="category-product-item text-center" style="background-color: #1C3738;">
+            <img src="../images/sweets-category.png" alt="Sweet" />
+            <a asp-controller="Home" asp-action="Cakes">Sweets & Treats</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="subscribe" id="SubscribeSection">
+    <div class="subscribe-text">
+        <h3 style="color: #fffaef;">Get the inside scoop!</h3>
+        <p>Sign up for our newsletter to receive exclusive offers, delicious recipes,</p>
+        <p>and the latest pastry updates from Byte Bakes!</p>
+    </div>
+    <div>
+        @if (TempData["SubscriptionMessage"] != null)
+        {
+            <div style="color: #DDC67E; font-weight: bold;">
+                @TempData["SubscriptionMessage"]
+            </div>
+        }
+
+        <form id="subscribeForm" method="post" action="Subscribe">
+            <label for="email" style="color: #DDC67E;">Email</label>
+            <input type="email" name="email" required />
+            <button type="submit">Sign Me Up!</button>
+        </form>
+
+
+
+    </div>
+
+</div>
+
+<script>
+    document.getElementById("subscribeForm").addEventListener("submit", function () {
+        // Clear the input field after submission
+        document.getElementById("email").value = "";
+    });
+</script>
