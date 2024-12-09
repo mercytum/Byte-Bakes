@@ -5,11 +5,11 @@ html {
   width: 100%;
 }
 
-/* @media (min-width: 768px) {
+@media (min-width: 768px) {
   html {
     font-size: 16px;
   }
-} */
+}
 
 /* .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
@@ -18,14 +18,22 @@ html {
 body {
     margin: 0;
     padding: 0;
-    width: 100%;
-    height: auto;
+    width: 100vw;
+    height: 100vh;
+    
+}
+
+.container-fluid {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .container {
   margin: 0;
   padding: 0;
-  width: 100%;
+  width: 100vw;
+  height: auto;
   
 }
 
@@ -68,7 +76,7 @@ a:hover {
 } */
 
 .landing { 
-  height: 80vh;
+  height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -82,7 +90,7 @@ a:hover {
 }
 
 .landing-small {
-  height: 70vh;
+  height: 90vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -106,6 +114,13 @@ a:hover {
   color: #1C3738;
 }
 
+.secton {
+  display: flex;
+  flex-direction: column;
+  margin: 15%;
+  text-align: center !important;
+}
+
  button {
   background-color: #905941;
   color: #FFFAEF;
@@ -113,9 +128,7 @@ a:hover {
   height: 40px;
 }
 
-#secton-1{
-  margin: 5px;
-}
+
 
 .categories {
   display: flex;
@@ -229,13 +242,13 @@ a:hover {
 .cakes {
   display: flex;
   flex-direction: column;
-  margin-top: 38px;
+  margin-top: 5%;
 }
 
 .product-family {
   display: flex;
   flex-direction: row;
-  height: 320px;
+  height: 380px;
   margin-top: -1px;
   border-bottom: 1px solid #FFFAEF;
 }
@@ -269,7 +282,7 @@ a:hover {
 .product-family img {
   width: 250px;
   height: 250px;
-  margin-top: -10%;
+  margin-top: -6%;
 }
 
 .product-description {
