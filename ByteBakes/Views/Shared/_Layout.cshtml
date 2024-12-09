@@ -34,13 +34,18 @@
                 </button>
                 <div class="navbar-collapse collapse d-inline-flex justify-content-between">
                     <ul class="navbar-nav" id="navbar">
-                        <li class="nav-item">
+                        @* <li class="nav-item">
                             <a class="nav-link navbar-brand" asp-area="" asp-controller="Home"
                                 asp-action="Shop">Shop</a>
+                        </li> *@
+
+                        <li class="nav-item">
+                            <a class="nav-link navbar-brand" asp-area="" asp-controller="Home"
+                               asp-action="Category">Categories</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link navbar-brand" asp-area="" asp-controller="Home"
-                                asp-action="WhyByteBakes">Why Byte-Bakes Bakes?</a>
+                                asp-action="WhyByteBakes">Why Byte-Bakes?</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link navbar-brand" asp-area="" asp-controller="Home"
@@ -55,14 +60,6 @@
                             <a class="nav-link navbar-brand" asp-area="" asp-controller="Home"
                                 asp-action="Contact">Contact Us</a>
                         </li>
-<<<<<<< Updated upstream
-=======
-                        <li class="nav-item">
-                            <a class="nav-link navbar-brand" asp-area="" asp-controller="Home"
-                               asp-action="Category">Category</a>
-
-                        </li>
->>>>>>> Stashed changes
                         <li>
                             <partial name="_LoginPartial" />
                         </li>
@@ -84,8 +81,9 @@
         </main>
     </div>
 
+    
     <footer class="footer text-muted">
-        <div class="container">
+        <div class="container text-center">
             &copy; 2024 Byte-Bakes <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
@@ -93,6 +91,8 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
+
 </body>
 
 </html>

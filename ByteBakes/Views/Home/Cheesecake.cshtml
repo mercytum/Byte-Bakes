@@ -1,0 +1,161 @@
+﻿@{
+    ViewData["Title"] = "Here is our cheesecake selection!";
+}
+
+<div class="landing-small">
+    <h1>CHEESECAKE</h1>
+</div>
+
+@model ByteBakes.Models.MyToppingsModel
+
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <div class="category-items">
+        <div class="category-product">
+            <div class="category-product-item text-center" style="background-color: #FFFAEF;">
+                <img src="../images/cheesecake.png" alt="Cakes" />
+            </div>
+            <div class="category-product-item text-center price-box" style="background-color: #1C3738;">
+                <div class="price">
+                    <p>PRICE: <span style="color: #DDC67E;">$50</span> </p>
+                    <p>SIZE: <span style="color: #DDC67E;">1KG</span> </p>
+                    <p>QUANTITY: <span style="color: #DDC67E;">1</span> </p>
+                    <p>Total Calories: <span id="CaloriesValue" style="color: #DDC67E;">@Model.CaloriesValue</span></p>
+                </div>
+                <div class="cart">
+                    <button>Add to Cart</button>
+                </div>
+                
+            </div>
+        </div>
+        <div class="category-product">
+            <div class="category-product-item" style="background-color: #1C3738;">
+                <div class="description">
+                    <h4>INGREDIENTS: </h4>
+                    <p>Graham cracker crumbs, sugar, butter, cream cheese, </p>
+                    <p>sour cream, heavy cream (optional), eggs, vanilla </p>
+                    <p>extract, lemon juice or zest (optional), with optional </p>
+                    <p>toppings like fresh berries, fruit compote, whipped cream, </p>
+                    <p>chocolate shavings, or caramel sauce.</p>
+                </div>
+            </div>
+            <div class="category-product-item" style="background-color: #FFFAEF;">
+                <div class="toppings">
+                    <h4 class="text-center">TOPPINGS</h4>
+                    <label>
+                        <input type="checkbox" id="IsFreshBerries" name="IsFreshBerries" value="true" @(Model.IsFreshBerries ? "checked"
+                            : "") />
+                        Fresh Berries (30 calories)
+                    </label>
+                    <br />
+
+                    <label>
+                        <input type="checkbox" id="IsWhippedCream" name="IsWhippedCream" value="true" @(Model.IsWhippedCream ? "checked"
+                            : "") />
+                        Whipped Cream (110 calories)
+                    </label>
+                    <br />
+
+                    <label>
+                        <input type="checkbox" id="IsSprinkles" name="IsSprinkles" value="true" @(Model.IsSprinkles ? "checked" : "") />
+                        Sprinkles (200 calories)
+                    </label>
+                    <br />
+
+                    <label>
+                        <input type="checkbox" id="IsChocolateDrizzle" name="IsChocolateDrizzle" value="true" @(Model.IsChocolateDrizzle
+                            ? "checked" : "") />
+                        Chocolate Drizzle (120 calories)
+                    </label>
+                    <br />
+
+                    <label>
+                        <input type="checkbox" id="IsCaramelSauce" name="IsCaramelSauce" value="true" @(Model.IsCaramelSauce ? "checked"
+                            : "") />
+                        Caramel Sauce (150 calories)
+                    </label>
+                    <br />
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="subscribe" id="SubscribeSection">
+        <div class="subscribe-text">
+            <h3 style="color: #fffaef;">Get the inside scoop!</h3>
+            <p>Sign up for our newsletter to receive exclusive offers, delicious recipes,</p> 
+            <p>and the latest pastry updates from Byte Bakes!</p>
+        </div>
+        <div>
+             @if (TempData["SubscriptionMessage"] != null)
+            {
+                <div style="color: #DDC67E; font-weight: bold;">
+                    @TempData["SubscriptionMessage"]
+                </div>
+            }
+
+            <form id="subscribeForm" method="post" action="Subscribe">
+                <label for="email" style="color: #DDC67E;">Email</label> 
+                <input type="email" name="email" required />
+            <button type="submit">Sign Me Up!</button>
+            </form>
+        </div>
+
+    </div>
+
+        
+
+    <script>
+        $('input[type="checkbox"]').change(function () {
+            var isWhippedCream = $('#IsWhippedCream').prop('checked');
+            var isSprinkles = $('#IsSprinkles').prop('checked');
+            var isFreshBerries = $('#IsFreshBerries').prop('checked');
+            var isChocolateDrizzle = $('#IsChocolateDrizzle').prop('checked');
+            var isCaramelSauce = $('#IsCaramelSauce').prop('checked');
+
+            $.ajax({
+                url: '@Url.Action("CheesecakeUpdateCalories", "Home")',
+                type: 'POST',
+                data: {
+                    IsWhippedCream: isWhippedCream,
+                    IsSprinkles: isSprinkles,
+                    IsFreshBerries: isFreshBerries,
+                    IsChocolateDrizzle: isChocolateDrizzle,
+                    IsCaramelSauce: isCaramelSauce
+                },
+                success: function (data) {
+                    $('#CaloriesValue').text(data);
+                },
+                error: function () {
+                    alert('Error updating calories');
+                }
+            });
+        });
+    </script>
+</body>
+<script>
+        document.getElementById("subscribeForm").addEventListener("submit", function () {
+            // Clear the input field after submission
+            document.getElementById("email").value = "";
+        });
+    </script>
+    <script>
+        // Ensure the DOM is fully loaded before executing the scroll
+        document.addEventListener('DOMContentLoaded', function () {
+            // Check if the URL has #SubscribeSection
+            if (window.location.hash === "#SubscribeSection") {
+                // Try to scroll to the element with the ID "SubscribeSection"
+                const subscribeSection = document.getElementById("SubscribeSection");
+                if (subscribeSection) {
+                    // Scroll smoothly to the section
+                    subscribeSection.scrollIntoView({ behavior: "smooth", block: "start" });
+                }
+            }
+        });
+    </script>

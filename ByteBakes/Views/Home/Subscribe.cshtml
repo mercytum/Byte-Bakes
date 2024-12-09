@@ -3,8 +3,138 @@
     ViewData["Title"] = "Subscribe";
 }
 
-<form method="post" action="/Newsletter/subscribe">
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required />
-    <button type="submit">Subscribe</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You for Subscribing!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .content {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 60%;
+            margin: auto;
+        }
+
+        h1 {
+            color: #4CAF50;
+            font-size: 2.5rem;
+        }
+
+        p {
+            color: #555;
+            font-size: 1.2rem;
+        }
+
+        .gif-container {
+            margin-top: 20px;
+        }
+
+        .gif-container img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+        }
+
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="content">
+        <h1 style="color:#DDC67E ;">You're Officially Subscribed! 🎉</h1>
+        <p>Thank you for joining our newsletter! We're thrilled to have you on board. Expect updates on our freshly
+            baked goods, seasonal specials, and exciting customization options!</p>
+
+        <div class="gif-container">
+            <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ2t1bjBuaTA2MTl0cTdyaGxxdTU0NmhtcHJnYTlybHhxZmJweWduNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/dLRvaaoiqsy4k87sPU/giphy.gif" alt="Thank you gif">
+        </div>
+
+        <p>Here's a quick peek at how you can customize your next order:</p>
+        <p>We offer a wide range of baked goods, and you can personalize your order to match your cravings! Whether
+            you’re after extra frosting on a cupcake or a special twist on our classic cinnamon rolls, we’ve got you
+            covered. You can:</p>
+        <ul style="text-align: left; max-width: 800px; margin: auto;">
+            <li><strong>Choose Your Flavors:</strong> From classic vanilla to seasonal specialties, we have something
+                for everyone.</li>
+            <li><strong>Pick Your Toppings:</strong> Add some sprinkles, frosting, chocolate chips, or fruits for that
+                extra oomph!</li>
+            <li><strong>Design Your Cakes:</strong> Whether it’s a birthday, anniversary, or just a treat, let us help
+                you create the perfect design!</li>
+        </ul>
+
+        <p>And don’t worry, we’ve got plenty of gluten-free, vegan, and allergy-friendly options too!</p>
+
+        <p>Stay tuned for all the latest news, exclusive discounts, and delicious pastry ideas coming your way. We can't
+            wait to share everything with you!</p>
+
+        <a href="/" class="btn" style="background-color: #DDC67E; color:#fffaef ;">Go to Home Page</a>
+    </div>
+
+
+
+    
+
+</body>
+
+</html>
+
+<div class="subscribe" id="SubscribeSection">
+        <div class="subscribe-text" style="color: #fffaef;">
+            <h3 >Get the inside scoop!</h3>
+            <p style="color: #fffaef;">Sign up for our newsletter to receive exclusive offers, delicious recipes,</p>
+            <p style="color: #fffaef;">and the latest pastry updates from Byte Bakes!</p>
+        </div>
+        <div>
+            @if (TempData["SubscriptionMessage"] != null)
+            {
+                <div style="color: #DDC67E; font-weight: bold;">
+                    @TempData["SubscriptionMessage"]
+                </div>
+            }
+
+            <form id="subscribeForm" method="post" action="Subscribe">
+                <label for="email" style="color: #DDC67E;">Email</label>
+                <input type="email" name="email" required />
+                <button type="submit">Sign Me Up!</button>
+            </form>
+
+
+
+        </div>
+
+    </div>
+
+    <script>
+        document.getElementById("subscribeForm").addEventListener("submit", function () {
+            // Clear the input field after submission
+            document.getElementById("email").value = "";
+        });
+    </script>
+

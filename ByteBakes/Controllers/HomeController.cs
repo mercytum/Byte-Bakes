@@ -22,6 +22,29 @@ namespace ByteBakes.Controllers
         {
             return View();
         }
+        public IActionResult Cheesecake()
+        {
+            var toppingsModel = new MyToppingsModel();
+          
+            return View(toppingsModel);
+        }
+
+        [HttpPost]
+        public IActionResult CheesecakeUpdateCalories(MyToppingsModel toppingsModel)
+        {
+            int calories = 410;
+            if (toppingsModel.IsFreshBerries) calories += 30;
+            if (toppingsModel.IsWhippedCream) calories += 110;
+            if (toppingsModel.IsSprinkles) calories += 200;
+            if (toppingsModel.IsChocolateDrizzle) calories += 120;
+            if (toppingsModel.IsCaramelSauce) calories += 150;
+
+            // Set the updated calories value in the model
+            toppingsModel.CaloriesValue = calories;
+
+            // Return the updated calories value as JSON for AJAX
+            return Json(toppingsModel.CaloriesValue);
+        }
 
         public IActionResult Cakes()
         {
@@ -57,6 +80,12 @@ namespace ByteBakes.Controllers
         {
             return View();
         }
+
+        public IActionResult Category()
+        {
+            return View();
+        }
+
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
