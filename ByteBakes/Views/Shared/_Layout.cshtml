@@ -34,13 +34,18 @@
                 </button>
                 <div class="navbar-collapse collapse d-inline-flex justify-content-between">
                     <ul class="navbar-nav" id="navbar">
-                        <li class="nav-item">
+                        @* <li class="nav-item">
                             <a class="nav-link navbar-brand" asp-area="" asp-controller="Home"
                                 asp-action="Shop">Shop</a>
+                        </li> *@
+
+                        <li class="nav-item">
+                            <a class="nav-link navbar-brand" asp-area="" asp-controller="Home"
+                               asp-action="Category">Categories</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link navbar-brand" asp-area="" asp-controller="Home"
-                                asp-action="WhyByteBakes">Why Byte-Bakes Bakes?</a>
+                                asp-action="WhyByteBakes">Why Byte-Bakes?</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link navbar-brand" asp-area="" asp-controller="Home"
@@ -54,10 +59,6 @@
                         <li class="nav-item">
                             <a class="nav-link navbar-brand" asp-area="" asp-controller="Home"
                                 asp-action="Contact">Contact Us</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link navbar-brand" asp-area="" asp-controller="Home"
-                               asp-action="Category">Category</a>
                         </li>
                         <li>
                             <partial name="_LoginPartial" />
