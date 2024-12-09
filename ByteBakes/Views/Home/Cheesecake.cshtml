@@ -10,7 +10,7 @@
 
 
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 
 <body>
@@ -30,7 +30,7 @@
                 <div class="cart">
                     <button>Add to Cart</button>
                 </div>
-                
+
             </div>
         </div>
         <div class="category-product">
@@ -55,34 +55,34 @@
                     <br />
 
                     <label>
-                        <input type="checkbox" id="IsWhippedCream" name="IsWhippedCream" value="true" @(Model.IsWhippedCream ? "checked"
-                            : "") />
+                        <input type="checkbox" id="IsWhippedCream"
+                        @(Model.IsWhippedCream ? "checked" : "") />
                         Whipped Cream (110 calories)
                     </label>
                     <br />
 
                     <label>
-                        <input type="checkbox" id="IsSprinkles" name="IsSprinkles" value="true" @(Model.IsSprinkles ? "checked" : "") />
+                        <input type="checkbox" id="IsSprinkles"
+                        @(Model.IsSprinkles ? "checked" : "") />
                         Sprinkles (200 calories)
                     </label>
                     <br />
 
                     <label>
-                        <input type="checkbox" id="IsChocolateDrizzle" name="IsChocolateDrizzle" value="true" @(Model.IsChocolateDrizzle
-                            ? "checked" : "") />
+                        <input type="checkbox" id="IsChocolateDrizzle"
+                        @(Model.IsChocolateDrizzle ? "checked" : "") />
                         Chocolate Drizzle (120 calories)
                     </label>
                     <br />
 
                     <label>
-                        <input type="checkbox" id="IsCaramelSauce" name="IsCaramelSauce" value="true" @(Model.IsCaramelSauce ? "checked"
-                            : "") />
+                        <input type="checkbox" id="IsCaramelSauce"
+                        @(Model.IsCaramelSauce ? "checked" : "") />
                         Caramel Sauce (150 calories)
                     </label>
                     <br />
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -93,11 +93,11 @@
             <p>and the latest pastry updates from Byte Bakes!</p>
         </div>
         <div>
-             @if (TempData["SubscriptionMessage"] != null)
+            @if (TempData["SubscriptionMessage"] != null)
             {
-                <div style="color: #DDC67E; font-weight: bold;">
+                    <div style="color: #DDC67E; font-weight: bold;">
                     @TempData["SubscriptionMessage"]
-                </div>
+                    </div>
             }
 
             <form id="subscribeForm" method="post" action="Subscribe">
@@ -107,12 +107,13 @@
             </form>
         </div>
 
-    </div>
+</div>
 
-        
+    @* <p>Total Calories: <span id="CaloriesValue">@Model.CaloriesValue</span></p> *@
 
     <script>
-        $('input[type="checkbox"]').change(function () {
+        $('input[type="checkbox"]').change(function () 
+        {
             var isWhippedCream = $('#IsWhippedCream').prop('checked');
             var isSprinkles = $('#IsSprinkles').prop('checked');
             var isFreshBerries = $('#IsFreshBerries').prop('checked');
@@ -131,31 +132,18 @@
                 },
                 success: function (data) {
                     $('#CaloriesValue').text(data);
-                },
-                error: function () {
-                    alert('Error updating calories');
                 }
             });
         });
     </script>
+
+
 </body>
+
 <script>
         document.getElementById("subscribeForm").addEventListener("submit", function () {
             // Clear the input field after submission
             document.getElementById("email").value = "";
         });
     </script>
-    <script>
-        // Ensure the DOM is fully loaded before executing the scroll
-        document.addEventListener('DOMContentLoaded', function () {
-            // Check if the URL has #SubscribeSection
-            if (window.location.hash === "#SubscribeSection") {
-                // Try to scroll to the element with the ID "SubscribeSection"
-                const subscribeSection = document.getElementById("SubscribeSection");
-                if (subscribeSection) {
-                    // Scroll smoothly to the section
-                    subscribeSection.scrollIntoView({ behavior: "smooth", block: "start" });
-                }
-            }
-        });
-    </script>
+

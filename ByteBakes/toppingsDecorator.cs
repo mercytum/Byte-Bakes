@@ -5,94 +5,98 @@
     }
 
     //base interface
-    interface IPastry
+    public interface IPastryCalories
     {
-        string GetPastryType();
+        public int calories();
     }
     
     //concrete implementation
-    class Pastry: IPastry
+    public class pastryCalories: IPastryCalories
     {
-        public string GetPastryType()
+        public int myCalories {  get; set; }
+        public pastryCalories(int pastryCalories)
         {
-            return "This is a pastry type";
+            myCalories = pastryCalories;
         }
-    }
-
-    //base decorator
-    class PastryDecorator : IPastry
-    {
-        private IPastry _pastry;
-
-        public PastryDecorator(IPastry pastry)
+        public int calories()
         {
-            _pastry = pastry;
-        }
-
-        public virtual string GetPastryType()
-        {
-            return _pastry.GetPastryType();
+            return myCalories;
         }
     }
 
     //concrete decorators
-    class FreshBerriesDecorator: PastryDecorator
+    class freshBerriesDecorator: IPastryCalories
     {
-        public FreshBerriesDecorator(IPastry pastry) : base(pastry) { }
+        private readonly IPastryCalories pastryCalories;
 
-        public override string GetPastryType()
+        public freshBerriesDecorator(IPastryCalories calories)
         {
-            string type = base.GetPastryType();
-            type += "\r\n with fresh berries";
-            return type;
+            pastryCalories = calories;
+        }
+
+        public int calories()
+        {
+            return pastryCalories.calories() + 30;
         }
     }
 
-    class WhippedCreamDecorator : PastryDecorator
+    class whippedCreamDecorator : IPastryCalories
     {
-        public WhippedCreamDecorator(IPastry pastry) : base(pastry) { }
+        private readonly IPastryCalories pastryCalories;
 
-        public override string GetPastryType()
+        public whippedCreamDecorator(IPastryCalories calories)
         {
-            string type = base.GetPastryType();
-            type += "\r\n with whipped cream";
-            return type;
+            pastryCalories = calories;
+        }
+
+        public int calories()
+        {
+            return pastryCalories.calories() + 110;
         }
     }
 
-    class SprinklesDecorator : PastryDecorator
+    class sprinklesDecorator : IPastryCalories
     {
-        public SprinklesDecorator(IPastry pastry) : base(pastry) { }
+        private readonly IPastryCalories pastryCalories;
 
-        public override string GetPastryType()
+        public sprinklesDecorator(IPastryCalories calories)
         {
-            string type = base.GetPastryType();
-            type += "\r\n with sprinkles";
-            return type;
+            pastryCalories = calories;
+        }
+
+        public int calories()
+        {
+            return pastryCalories.calories() + 200;
         }
     }
 
-    class ChocolateDrizzleDecorator : PastryDecorator
+    class chocolateDrizzleDecorator : IPastryCalories
     {
-        public ChocolateDrizzleDecorator(IPastry pastry) : base(pastry) { }
+        private readonly IPastryCalories pastryCalories;
 
-        public override string GetPastryType()
+        public chocolateDrizzleDecorator(IPastryCalories calories)
         {
-            string type = base.GetPastryType();
-            type += "\r\n with chocolate drizzle";
-            return type;
+            pastryCalories = calories;
+        }
+
+        public int calories()
+        {
+            return pastryCalories.calories() + 120;
         }
     }
 
-    class CaramelSauceDecorator : PastryDecorator
+    class caramelSauceDecorator : IPastryCalories
     {
-        public CaramelSauceDecorator(IPastry pastry) : base(pastry) { }
+        private readonly IPastryCalories pastryCalories;
 
-        public override string GetPastryType()
+        public caramelSauceDecorator(IPastryCalories calories)
         {
-            string type = base.GetPastryType();
-            type += "\r\n with carmel sauce";
-            return type;
+            pastryCalories = calories;
+        }
+
+        public int calories()
+        {
+            return pastryCalories.calories() + 150;
         }
     }
 }
