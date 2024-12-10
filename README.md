@@ -68,3 +68,4 @@ This project focuses on developing an online pastry store application that allow
   FROM dbo.Subscribers
   ORDER BY Email;
   ```
+- **Customize Pastry**: Navigate to the caregories or shop page, click on the cake category, click the 'Add to Cart' button for the cheesecake and in the page, customize the pastry by picking the toppings using the checkbox. 
